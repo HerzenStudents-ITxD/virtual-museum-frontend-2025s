@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
-import Exhibits from "./Exhibits";
-import Exhibit from "./Exhibit";
+import Exhibits from "./exhibit/Exhibits";
+import Exhibit from "./exhibit/Exhibit";
 import Culture from "./Culture";
 import CultureArticle from "./CultureArticle";
 
