@@ -5,6 +5,7 @@ import Exhibits from "./exhibit/Exhibits";
 import Exhibit from "./exhibit/Exhibit";
 import Culture from "./Culture";
 import CultureArticle from "./CultureArticle";
+import ArtCulturePage from "./pages/ArtCulturePage";
 
 export default function App() {
   return (
@@ -14,14 +15,16 @@ export default function App() {
         <Route path="about" element={<About />} />
 
         <Route path="exhibits">
-          <Route index element={<Exhibits />}/>
-          <Route path=":id" element={<Exhibit />}/>
+          <Route index element={<Exhibits />} />
+          <Route path=":id" element={<Exhibit />} />
         </Route>
 
         <Route path="culture">
           <Route index element={<Culture />} />
-          <Route path=":id" element={<CultureArticle />}/>
+          <Route path=":id" element={<CultureArticle />} />
         </Route>
+
+        <Route path="art-culture" element={<ArtCulturePage />} />
       </Routes>
     </BrowserRouter>
   );
