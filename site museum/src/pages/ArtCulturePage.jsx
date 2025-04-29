@@ -1,7 +1,8 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
+import api from "../Api";
 import "./ArtCulturePage.css";
 
 // Импортируем изображения
@@ -19,6 +20,12 @@ import article11 from "../assets/articles/article11.png";
 import article12 from "../assets/articles/article12.png";
 
 const ArtCulturePage = () => {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    api.getCultureArticles().then(setArticles);
+  }, []);
+
   return (
     <>
       {/* Основной контейнер страницы */}
@@ -46,65 +53,15 @@ const ArtCulturePage = () => {
 
         <section className="culture-content">
         <div className="articles-grid">
-            {/* Первая строка */}
-            <ArticleCard 
-              title="Вануйто Анна Епонина Песня от Ядне Леонида" 
-              image={article1} 
-            />
-            <ArticleCard 
-              title="Вакуйте Анна Епонина Колыбельная от Ядне (Пуйко)" 
-              image={article2} 
-            />
-
-            {/* Вторая строка */}
-            <ArticleCard 
-              title="Вакуйте Анна Епонина Песня о Вакане Салиндер" 
-              image={article3} 
-            />
-            <ArticleCard 
-              title="Кириллова Маргарита Степановна Колыбельная" 
-              image={article4}  
-            />
-
-            {/* Третья строка */}
-            <ArticleCard 
-              title={'Кириллова Маргарита Степановна\nЗапев хоровода "Манчора"'}
-              image={article5} 
-            />
-            <ArticleCard 
-              title={"Кириллова Маргарита Степановна\nСказка о выборе помощников"} 
-              image={article6} 
-            />
-
-            {/* Четвертая строка */}
-            <ArticleCard 
-              title="Детский костюм" 
-              image={article7} 
-            />
-            <ArticleCard 
-              title="Национальный сценический костюм" 
-              image={article8}  
-            />
-
-            {/* Пятая строка */}
-            <ArticleCard 
-              title="Кумалан. Коврик." 
-              image={article9} 
-            />
-            <ArticleCard 
-              title="Кумалан. Коврик." 
-              image={article10} 
-            />
-
-            {/* Шестая строка */}
-            <ArticleCard 
-              title={'Ансамбль "Дэлача"'}
-              image={article11} 
-            />
-            <ArticleCard 
-              title={'Танец "Сядотако"'} 
-              image={article12} 
-            />
+            {articles.map(article => {
+              return (
+                <ArticleCard
+                  key={article.id}
+                  title={article.title}
+                  image={article.main_photo}
+                />
+              );
+            })}
           </div>
         </section>
       </div>

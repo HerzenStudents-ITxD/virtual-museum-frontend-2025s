@@ -1,16 +1,23 @@
+import { useEffect, useState } from "react";
+
 import api from "../Api";
 import ExhibitPreview from "./ExhibitPreview";
 
 export default function Exhibits() {
-  const exhibits = api.requestExhibits();
+  const [exhibits, setExhibits] = useState([]);
+
+  useEffect(() => {
+    api.getExhibits().then(setExhibits);
+  }, []);
 
   return (
     <div>
       {exhibits.map(exhibit => {
         return <ExhibitPreview
+          key={exhibit.id}
           id={exhibit.id}
-          modelSrc={exhibit.modelSrc}
           title={exhibit.title}
+          imgSrc={exhibit.main_photo}
         />;
       })}
     </div>

@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router";
-import ExhibitModel from "./ExhibitModel";
 
-export default function ExhibitPreview({ id, modelSrc, title }) {
+export default function ExhibitPreview({ id, title, imgSrc }) {
   const navigate = useNavigate();
 
   return (
     <div>
-      <ExhibitModel src={modelSrc} />
-      <h4>Title</h4>
+      <img src={imgSrc} alt={title} />
+      <h4>{title}</h4>
       <button onClick={() => navigate(`/exhibits/${id}`)}>Подробнее</button>
     </div>
   );
