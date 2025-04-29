@@ -1,0 +1,82 @@
+/* Основной контейнер карточки */
+.article-card {
+    display: flex;
+    gap: 24px; 
+    width: fit-content;
+  }
+  
+  /* Фото (255x182) */
+  .article-card__image {
+    width: 255px;
+    height: 182px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  
+  /* Контейнер текста (высота = фото) */
+  .article-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 182px;
+    width: 255px; 
+  }
+  
+  /* Заголовок с переносами */
+  .article-card__title {
+    font-family: "Futura PT";
+    font-weight: 450;
+    font-size: 22px;
+    line-height: 1.2;
+    color: white;
+    margin: 0;
+    padding-top: 8px; 
+    word-break: break-word; 
+    white-space: pre-wrap; 
+  }
+  
+  /* Кнопка (255x44) */
+  .article-card__button {
+    width: 255px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 89px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 21px 0 16px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Futura PT", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: white;
+    position: relative; 
+}
+  
+.article-card__arrow {
+    width: 5.4px;
+    height: 14.7px;
+    margin-left: auto; 
+    position: absolute;
+    right: 21px; 
+    transition: all 0.3s ease;
+}
+  
+/* Ховер-эффекты */
+.article-card__button:hover {
+    background: white;
+}
+
+.article-card__button:hover,
+.article-card__button:hover .article-card__arrow {
+    color: var(--block-color);
+    fill: var(--block-color); /* Для SVG */
+}
+
+.article-card__button:hover .article-card__arrow {
+    filter: invert(1); /* Альтернатива для смены цвета SVG */
+}
