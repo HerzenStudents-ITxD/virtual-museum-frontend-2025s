@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url("../assets/fonts/Montserrat-Medium.otf") format("opentype");
+  }
+
+
+.one-exhibit-page {
+    width: 100%;
+    max-width: 1920px;
+    margin: 50px auto 100px; 
+  }
+  
+  .one-exhibit-container {
+    background-color: var(--block-color);
+    width: 95%;
+    max-width: 1360px;
+    margin: 69px auto 0;
+    padding: 25px;
+    min-height: 517px;
+    border-radius: 20px;
+    color: white;
+    position: relative;
+  }
+  

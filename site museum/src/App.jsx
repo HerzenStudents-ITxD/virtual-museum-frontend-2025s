@@ -6,6 +6,8 @@ import Exhibit from "./exhibit/Exhibit";
 import Culture from "./Culture";
 import CultureArticle from "./CultureArticle";
 import ArtCulturePage from "./pages/ArtCulturePage";
+import ExhibitsPage from "./pages/ExhibitsPage";
+import OneExhibitPage from "./pages/OneExhibitPage";
 
 export default function App() {
   return (
@@ -25,6 +27,10 @@ export default function App() {
         </Route>
 
         <Route path="art-culture" element={<ArtCulturePage />} />
+
+        <Route path="3d-exhibits" element={<ExhibitsPage />} />
+        
+        <Route path="one-exhibit" element={<OneExhibitPage />} />
       </Routes>
     </BrowserRouter>
   );

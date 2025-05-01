@@ -1,0 +1,241 @@
+/* Основной контейнер страницы */
+.exhibits-page {
+    width: 100%;
+    max-width: 1920px;
+    margin: 50px auto 0;
+    position: relative;
+}
+
+/* Зеленая плашка */
+.exhibits-header-container {
+    background-color: var(--block-color);
+    border-radius: clamp(0.9375rem, 0.8275rem + 0.4695vw, 1.25rem);
+    width: 95%;
+    max-width: 1360px;
+    margin: 69px auto 0;
+    padding: 25px 0 140px 66px;
+    position: relative;
+    min-height: 259px;
+}
+
+/* Заголовок */
+.exhibits-main-heading {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--white-color);
+    margin: 0;
+    position: absolute;
+    top: 25px;
+    left: 66px;
+}
+
+/* Контейнер для фильтров */
+.exhibits-filters-container {
+    position: absolute;
+    left: 66px;
+    bottom: 59px;
+    display: flex;
+    gap: 20px;
+}
+
+/* Стиль для каждого фильтра */
+.exhibits-filter {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Название фильтра */
+.exhibits-filter-title {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--white-color);
+    margin: 0 0 7px 18px;
+}
+
+/* Плашка с выбором */
+.exhibits-filter-option {
+    background-color: var(--white-color);
+    border-radius: 89px;
+    padding: 15px 25px;
+    width: 291px;
+    height: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Текст внутри плашки */
+.exhibits-filter-option-text {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--background-color);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Стрелочка */
+.exhibits-filter-arrow {
+    width: 12px;
+    height: 8px;
+    background-image: url("../assets/icons/triangle-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.exhibits-filter-arrow.open {
+    transform: rotate(180deg);
+}
+
+/* Выпадающий список */
+.exhibits-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0; /* Теперь выравниваем строго по левому краю кнопки */
+    width: 291px; /* Такая же ширина как у кнопки */
+    margin-top: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid white;
+    border-radius: 30px; /* Такое же закругление как у кнопки */
+    overflow: hidden;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px 0; /* Добавляем отступ сверху и снизу */
+    overflow-y: auto; /* Оставляем скролл */
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none;
+}
+
+.exhibits-dropdown.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Элементы выпадающего списка */
+.exhibits-dropdown-item {
+    height: 57px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    font-family: "Futura PT", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px; /* Добавляем отступы по бокам */
+    border-radius: 40px; /* Закругление для элементов */
+}
+
+.exhibits-dropdown-item:hover {
+    background-color: var(--block-color);
+}
+
+/* Многострочные элементы */
+.exhibits-dropdown-item.multiline {
+    height: auto;
+    min-height: 57px;
+    padding: 15px 25px;
+    line-height: 1.2;
+    border-radius: 40px;
+}
+
+/* Сетка экспонатов */
+.exhibits-content {
+    width: 95%;
+    max-width: 1360px;
+    margin: 60px auto 0;
+    padding: 0 0 100px 0; 
+}
+
+/* Адаптивность */
+@media (max-width: 1245px) {
+    .exhibits-header-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1020px) {
+    .exhibits-header-container {
+        padding: 25px 20px 80px;
+        min-height: auto;
+    }
+    
+    .exhibits-main-heading {
+        position: static;
+        margin-bottom: 30px;
+    }
+    
+    .exhibits-filters-container {
+        position: static;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .exhibits-filter-option {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .exhibits-header-container {
+        padding-left: 20px;
+        margin-top: 40px;
+    }
+    
+    .exhibits-main-heading {
+        font-size: 36px;
+    }
+    
+    .exhibits-filter-title {
+        font-size: 18px;
+    }
+
+    .exhibits-content {
+        padding: 0 20px 60px;
+        width: auto;
+    }
+}
+
+.exhibits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 44px 20px; /* Горизонтальные и вертикальные отступы */
+    margin-top: 44px;
+}
+
+/* Адаптивность */
+@media (max-width: 1440px) {
+    .exhibits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .exhibits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .exhibits-grid {
+        grid-template-columns: 1fr;
+    }
+}
