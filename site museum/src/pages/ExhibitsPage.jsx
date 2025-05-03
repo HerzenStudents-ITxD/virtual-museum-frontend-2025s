@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import api from "../Api";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import "./ExhibitsPage.css";
@@ -74,8 +75,11 @@ const ExhibitsPage = () => {
   });
 
   const [openFilter, setOpenFilter] = useState(null);
+  const [exhibits, setExhibits] = useState([]);
 
   useEffect(() => {
+    api.getExhibits().then(setExhibits);
+
     const handleClickOutside = (e) => {
       if (!e.target.closest('.exhibits-filter')) {
         setOpenFilter(null);
@@ -140,14 +144,14 @@ const ExhibitsPage = () => {
 
         <section className="exhibits-content">
             <div className="exhibits-grid">
-             {[...Array(8)].map((_, i) => (
-                    <ExhibitPreview
-                        key={i}
-                        id={i+1}
-                        title="Макет девушки, одетой в ненецкую ягушку"
-                        imgSrc="/assets/sample-exhibit.png"
-                    />
-             ))}
+              {exhibits.map((exhibit, i) => (
+                <ExhibitPreview
+                    key={i}
+                    id={i + 1}
+                    title={exhibit.title}
+                    imgSrc="/assets/sample-exhibit.png"
+                />
+              ))}
             </div>
         </section>
       </div>

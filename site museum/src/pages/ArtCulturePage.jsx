@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import api from "../Api";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
-import api from "../Api";
 import "./ArtCulturePage.css";
 
 // Импортируем изображения

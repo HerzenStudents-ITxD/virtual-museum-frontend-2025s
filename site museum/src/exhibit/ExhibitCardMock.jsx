@@ -3,21 +3,8 @@ import sampleExhibit from '../assets/sample-exhibit.png';
 import wideningArrow from '../assets/icons/widening-arrow.svg';
 import './ExhibitCardMock.css';
 
-const ExhibitCardMock = () => {
+const ExhibitCardMock = ({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [error, setError] = useState(null);
-
-  const exhibitData = {
-    main_photo: sampleExhibit,
-    title: "Макет девушки в ненецкой ягушке",
-    description: "Ягушка (мен. мой паны) – традиционная ненецкая одежда. Летний вариант.",
-    details: {
-      region: "ЯМАЛО-НЕНЕЦКИЙ АВТОНОМНЫЙ ОКРУГ",
-      district: "ТАЗОВСКИЙ",
-      place: "ТАЗОВСКИЙ",
-      ethnos: "НЕНЦЫ"
-    }
-  };
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = (e) => {
@@ -25,19 +12,14 @@ const ExhibitCardMock = () => {
     setIsModalOpen(false);
   };
 
-  if (error) {
-    return <div className="error-message">Произошла ошибка при загрузке экспоната</div>;
-  }
-
   return (
     <div className="exhibit-card">
       {/* Основная карточка экспоната */}
       <div className="exhibit-photo-container">
         <img 
-          src={exhibitData.main_photo} 
-          alt={exhibitData.title} 
+          src={data.main_photo} 
+          alt={data.title} 
           className="exhibit-photo"
-          onError={() => setError(new Error('Не удалось загрузить изображение'))}
         />
         <button 
           className="expand-button"
@@ -48,35 +30,34 @@ const ExhibitCardMock = () => {
             src={wideningArrow} 
             alt="" 
             className="expand-icon"
-            onError={() => setError(new Error('Не удалось загрузить иконку'))}
           />
         </button>
       </div>
 
       <div className="exhibit-info">
-        <h1 className="exhibit-title">{exhibitData.title}</h1>
+        <h1 className="exhibit-title">{data.title}</h1>
         
         <div className="exhibit-description">
           <h2>Описание</h2>
-          <p>{exhibitData.description}</p>
+          <p>{data.description}</p>
         </div>
 
         <div className="exhibit-details">
           <div className="detail-item">
             <h3>Регион</h3>
-            <div className="detail-value">{exhibitData.details.region}</div>
+            <div className="detail-value">{data.region}</div>
           </div>
           <div className="detail-item">
             <h3>Район</h3>
-            <div className="detail-value">{exhibitData.details.district}</div>
+            <div className="detail-value">{data.district}</div>
           </div>
           <div className="detail-item">
             <h3>Нас. пункт</h3>
-            <div className="detail-value">{exhibitData.details.place}</div>
+            <div className="detail-value">{data.place}</div>
           </div>
           <div className="detail-item">
             <h3>Этнос</h3>
-            <div className="detail-value">{exhibitData.details.ethnos}</div>
+            <div className="detail-value">{data.ethnos}</div>
           </div>
         </div>
       </div>
@@ -86,13 +67,9 @@ const ExhibitCardMock = () => {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <img 
-              src={exhibitData.main_photo} 
-              alt={`Увеличенное фото: ${exhibitData.title}`}
+              src={data.main_photo} 
+              alt={`Увеличенное фото: ${data.title}`}
               className="enlarged-photo"
-              onError={() => {
-                setError(new Error('Не удалось загрузить увеличенное изображение'));
-                closeModal();
-              }}
             />
             <button 
               className="modal-close-button"
