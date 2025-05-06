@@ -1,9 +1,14 @@
-.exhibit-card {
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url("../assets/fonts/Montserrat-Medium.otf") format("opentype");
+  }
+
+.article-card {
     display: flex;
     gap: 25px;
     width: 100%;
     position: relative;
-  }
+}
   
   .error-message {
     color: white;
@@ -14,20 +19,19 @@
     margin: 20px 0;
   }
   
-  /* Контейнер фотографии */
-  .exhibit-photo-container {
+  .article-photo-container {
     position: relative;
     width: 470px;
     height: 470px;
     flex-shrink: 0;
-  }
+}
   
-  .exhibit-photo {
+.article-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 16px;
-  }
+}
   
   /* Кнопка увеличения */
   .expand-button {
@@ -50,23 +54,22 @@
     transform: scale(1.225); 
   }
   
-  /* Информация об экспонате */
-  .exhibit-info {
+  .article-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
+}
   
-  .exhibit-title {
+.article-title {
     font-family: "Futura PT", sans-serif;
     font-weight: 300;
     font-size: 56px;
     line-height: 0.8;
     margin: 0 0 23px 0;
     color: white;
-  }
+}
   
-  .exhibit-description h2 {
+  .article-description h2 {
     font-family: "Futura PT", sans-serif;
     font-weight: 500;
     font-size: 23px;
@@ -74,14 +77,14 @@
     color: white;
   }
   
-  .exhibit-description p {
+  .article-description p {
     font-size: 18px;
     margin: 0;
     color: white;
   }
   
   /* Детали экспоната */
-  .exhibit-details {
+  .article-details {
     display: flex;
     gap: 13px;
     margin-top: auto;
@@ -171,27 +174,27 @@
   
   /* Адаптивность */
   @media (max-width: 1200px) {
-    .exhibit-card {
+    .article-card {
       flex-direction: column;
     }
     
-    .exhibit-photo-container {
+    .article-photo-container {
       width: 100%;
       height: auto;
       aspect-ratio: 1/1;
     }
     
-    .exhibit-title {
+    .article-title {
       font-size: 42px;
     }
   }
   
   @media (max-width: 768px) {
-    .exhibit-title {
+    .article-title {
       font-size: 32px;
     }
     
-    .exhibit-details {
+    .article-details {
       flex-direction: column;
       gap: 8px;
     }
@@ -206,4 +209,18 @@
       max-width: 800px;
       max-height: 800px;
     }
+  }
+
+  .article-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Montserrat-Medium", sans-serif;
+    font-size: 18px;
   }

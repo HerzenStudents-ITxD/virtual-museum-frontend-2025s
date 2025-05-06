@@ -12,7 +12,7 @@
     border-radius: clamp(0.9375rem, 0.8275rem + 0.4695vw, 1.25rem);
     width: 95%;
     max-width: 1360px;
-    margin: 69px auto 0; /* 69px от хедера */
+    margin: 69px auto 0; 
     padding: 25px 0 140px 66px;
     position: relative;
     min-height: 227px;
@@ -21,7 +21,7 @@
   /* Заголовок */
   .culture-main-heading {
     font-family: "Futura PT", sans-serif;
-    font-weight: 400; /* Book */
+    font-weight: 400; 
     font-size: 48px;
     line-height: 1;
     color: var(--white-color);
@@ -54,6 +54,15 @@
     transition: all 0.3s ease;
   }
   
+  /* Стиль для активной (нажатой) плашки */
+/* .culture-category.active {
+  background-color: var(--white-color);
+}
+
+.culture-category.active .culture-category-title {
+  color: var(--background-color);
+} */
+
   .culture-category-title {
     font-family: "Futura PT", sans-serif;
     font-weight: 400;
@@ -117,13 +126,12 @@
     }
   }
 
-
   /* Сетка статей */
 .culture-content {
     width: 95%;
     max-width: 1360px;
     margin: 60px auto 0;
-    padding: 0 65px 100px; /* Верх: 0, Слева/Справа: 106px, Низ: 100px */
+    padding: 0 65px 100px; 
 }
   
   .articles-grid {
@@ -144,6 +152,6 @@
   @media (max-width: 768px) {
     .culture-content {
         padding: 0 20px 60px; /* Меньшие отступы на мобильных */
-        width: auto; /* Или calc(100% - 40px) */
+        width: auto; 
     }
 }
