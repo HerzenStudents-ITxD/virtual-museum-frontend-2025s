@@ -11,6 +11,10 @@ class Api {
     return this.callMethod("/culture");
   }
 
+  async getCultureArticle(id) {
+    return this.callMethod(`/culture/${id}`);
+  }
+
   async getExhibits() {
     return this.callMethod("/exhibits");
   }

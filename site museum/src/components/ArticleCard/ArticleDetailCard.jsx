@@ -12,26 +12,12 @@ const ArticleDetailCard = ({ data }) => {
     setIsModalOpen(false);
   };
 
-  // Временные данные для теста 
-  const testData = {
-    title: "Вануйто Анна Еполивна",
-    description: "Песня, услышанная от Ядне Леонида (п. Находка, Тазовский район, ЯНАО) в 1970-х гг.",
-    region: "Ямало-Ненецкий автономный округ",
-    district: "Пуровский",
-    place: "Самбург",
-    ethnos: "Ненцы",
-    //main_photo: "/articles/article1_main.png"
-  };
-
-  // тестовые данные
-  const displayData = data || testData;
-
   return (
     <div className="article-card">
       <div className="article-photo-container">
         {/* <img 
-          src={displayData.main_photo} 
-          alt={displayData.title} 
+          src={data.main_photo} 
+          alt={data.title} 
           className="article-photo"
         /> */}
         <div className="article-photo-placeholder">
@@ -52,29 +38,29 @@ const ArticleDetailCard = ({ data }) => {
       </div>
 
       <div className="article-info">
-        <h1 className="article-title">{displayData.title}</h1>
+        <h1 className="article-title">{data.title}</h1>
         
         <div className="article-description">
-          <h2>Описание</h2>
-          <p>{displayData.description}</p>
+          <h2>{data.desc}</h2>
+          <p>{data.description}</p>
         </div>
 
         <div className="article-details">
           <div className="detail-item">
             <h3>Регион</h3>
-            <div className="detail-value">{displayData.region}</div>
+            <div className="detail-value">{data.region}</div>
           </div>
           <div className="detail-item">
             <h3>Район</h3>
-            <div className="detail-value">{displayData.district}</div>
+            <div className="detail-value">{data.district}</div>
           </div>
           <div className="detail-item">
             <h3>Нас. пункт</h3>
-            <div className="detail-value">{displayData.place}</div>
+            <div className="detail-value">{data.place}</div>
           </div>
           <div className="detail-item">
             <h3>Этнос</h3>
-            <div className="detail-value">{displayData.ethnos}</div>
+            <div className="detail-value">{data.ethnos}</div>
           </div>
         </div>
       </div>
@@ -83,8 +69,8 @@ const ArticleDetailCard = ({ data }) => {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <img 
-              src={displayData.main_photo} 
-              alt={`Увеличенное фото: ${displayData.title}`}
+              src={data.main_photo} 
+              alt={`Увеличенное фото: ${data.title}`}
               className="enlarged-photo"
             />
             <button 

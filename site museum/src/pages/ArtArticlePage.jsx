@@ -7,20 +7,26 @@ import "./ArtArticlePage.css";
 import { useEffect, useState } from "react";
 
 const ArtArticlePage = () => {
-    const { id } = useParams();
-    const [data, setData] = useState(null);
+  const { id } = useParams();
+  const [data, setData] = useState(null);
 
-  return (
-    <>
-      <div className="art-article-page">
-        <Header isHeroHeader={false} />
-        <div className="art-article-container">
-          <ArticleDetailCard data={data} /> {}
+  useEffect(() => {
+    api.getCultureArticle(id).then(setData);
+  }, []);
+
+  if (data !== null) {
+    return (
+      <>
+        <div className="art-article-page">
+          <Header isHeroHeader={false} />
+          <div className="art-article-container">
+            <ArticleDetailCard data={data} /> {}
+          </div>
         </div>
-      </div>
-      <Footer />
-    </>
-  );
+        <Footer />
+      </>
+    );
+  }
 };
 
 export default ArtArticlePage; 

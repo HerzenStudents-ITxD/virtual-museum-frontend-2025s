@@ -55,13 +55,13 @@
   }
   
   /* Стиль для активной (нажатой) плашки */
-/* .culture-category.active {
+.culture-category.active {
   background-color: var(--white-color);
 }
 
 .culture-category.active .culture-category-title {
   color: var(--background-color);
-} */
+} 
 
   .culture-category-title {
     font-family: "Futura PT", sans-serif;

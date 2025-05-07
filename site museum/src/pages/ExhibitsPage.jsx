@@ -14,7 +14,7 @@ const ExhibitsPage = () => {
         "Забайкальский край",
         "Камчатский край",
         "Республика Саха (Якутия)",
-        { text: "Ямало-Ненецкий автономный округ", multiline: true }
+        "Ямало-Ненецкий автономный округ"
       ],
       default: "Любой"
     },
@@ -42,7 +42,7 @@ const ExhibitsPage = () => {
         "Томмот",
         "Угоян",
         "Хатыстыр",
-        { text: "Школа-интернат \"Арктика\"", multiline: true }
+        "Школа-интернат \"Арктика\""
       ],
       default: "Любой"
     },
@@ -76,9 +76,23 @@ const ExhibitsPage = () => {
 
   const [openFilter, setOpenFilter] = useState(null);
   const [exhibits, setExhibits] = useState([]);
+  const [filteredExhibits, setFilteredExhibits] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    api.getExhibits().then(setExhibits);
+    const loadData = async () => {
+      try {
+        const data = await api.getExhibits();
+        setExhibits(data);
+        applyFilters(data, filters);
+      } catch (error) {
+        console.error("Error loading exhibits:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
 
     const handleClickOutside = (e) => {
       if (!e.target.closest('.exhibits-filter')) {
@@ -89,6 +103,22 @@ const ExhibitsPage = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    applyFilters(exhibits, filters);
+  }, [filters, exhibits]);
+
+  const applyFilters = (exhibitsToFilter, currentFilters) => {
+    const result = exhibitsToFilter.filter(exhibit => {
+      return (
+        (currentFilters.region === "Любой" || exhibit.region === currentFilters.region) &&
+        (currentFilters.district === "Любой" || exhibit.district === currentFilters.district) &&
+        (currentFilters.locality === "Любой" || exhibit.place === currentFilters.locality) &&
+        (currentFilters.ethnicity === "Любой" || exhibit.ethnos === currentFilters.ethnicity)
+      );
+    });
+    setFilteredExhibits(result);
+  };
 
   const handleFilterToggle = (filterName) => {
     setOpenFilter(openFilter === filterName ? null : filterName);
@@ -121,20 +151,15 @@ const ExhibitsPage = () => {
                 
                 {openFilter === key && (
                   <div className={`exhibits-dropdown ${openFilter === key ? "show" : ""}`}>
-                    {config.options.map((option) => {
-                      const optionText = typeof option === 'object' ? option.text : option;
-                      const isMultiline = typeof option === 'object' && option.multiline;
-                      
-                      return (
-                        <div
-                          key={optionText}
-                          className={`exhibits-dropdown-item ${isMultiline ? "multiline" : ""}`}
-                          onClick={() => handleFilterSelect(key, optionText)}
-                        >
-                          {optionText}
-                        </div>
-                      );
-                    })}
+                    {config.options.map((option) => (
+                      <div
+                        key={option}
+                        className="exhibits-dropdown-item"
+                        onClick={() => handleFilterSelect(key, option)}
+                      >
+                        {option}
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
@@ -143,16 +168,25 @@ const ExhibitsPage = () => {
         </div>
 
         <section className="exhibits-content">
+          {isLoading ? (
+            <div className="exhibits-loading">Загрузка...</div>
+          ) : (
             <div className="exhibits-grid">
-              {exhibits.map((exhibit, i) => (
+              {filteredExhibits.map((exhibit) => (
                 <ExhibitPreview
-                    key={i}
-                    id={i + 1}
-                    title={exhibit.title}
-                    imgSrc="/assets/sample-exhibit.png"
+                  key={exhibit.id}
+                  id={exhibit.id}
+                  title={exhibit.title}
+                  imgSrc={exhibit.main_photo || "/assets/sample-exhibit.png"}
                 />
               ))}
+              {filteredExhibits.length === 0 && !isLoading && (
+                <div className="exhibits-no-results">
+                  По выбранным фильтрам экспонатов не найдено
+                </div>
+              )}
             </div>
+          )}
         </section>
       </div>
       <Footer />

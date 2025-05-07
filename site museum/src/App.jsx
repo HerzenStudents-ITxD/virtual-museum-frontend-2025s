@@ -22,11 +22,8 @@ export default function App() {
 
         <Route path="culture">
           <Route index element={<ArtCulturePage />} />
-          {/* <Route path=":id" element={<ArtCulturePage />} /> */}
+          <Route path=":id" element={<ArtArticlePage />} /> 
         </Route>
-
-        <Route path="art-culture" element={<ArtCulturePage />} />
-        <Route path="art-article" element={<ArtArticlePage />} />
       </Routes>
     </BrowserRouter>
   );
