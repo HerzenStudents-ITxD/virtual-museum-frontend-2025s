@@ -7,6 +7,10 @@ import Culture from "./Culture";
 import CultureArticle from "./CultureArticle";
 import ArtCulturePage from "./pages/ArtCulturePage";
 import ArtArticlePage from "./pages/ArtArticlePage";
+import Login from "./admin-panel/pages/Login";
+import ContentManagerPage from "./admin-panel/pages/ContentManagerPage";
+import NewModelPage from "./admin-panel/pages/NewModelPage";
+import NewArticlePage from "./admin-panel/pages/NewArticlePage"
 
 export default function App() {
   return (
@@ -24,6 +28,12 @@ export default function App() {
           <Route index element={<ArtCulturePage />} />
           <Route path=":id" element={<ArtArticlePage />} /> 
         </Route>
+
+        <Route path="login" element={<Login />} />
+        <Route path="content" element={<ContentManagerPage />} />
+        <Route path="modelcreate" element={<NewModelPage />} />
+        <Route path="articlecreate" element={<NewArticlePage />} />
+
       </Routes>
     </BrowserRouter>
   );

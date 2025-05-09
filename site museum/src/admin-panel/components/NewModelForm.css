@@ -1,0 +1,108 @@
+.new-model-form {
+    background: #343436;
+    width: 100%;
+    max-width: 325px;
+    height: auto;
+    min-height: 475px;
+    border-radius: 16.58px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 19px 18px;
+    box-sizing: border-box;
+  }
+  
+  .model-preview-container {
+    width: 100%;
+    max-width: 289.28px;
+    height: auto;
+    aspect-ratio: 289.28/290.94;
+    background: #1C1A1F;
+    border-radius: 15.27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .model-plus-icon {
+    width: 60%;
+    max-width: 123px;
+    height: auto;
+    opacity: 0.7;
+  }
+  
+  .model-title {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 3vw, 30px);
+    color: white;
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .model-add-button {
+    width: 100%;
+    max-width: 289.28px;
+    height: clamp(50px, 15vw, 70px);
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 25px;
+    color: white;
+    font-family: "Futura PT", sans-serif;
+    font-size: clamp(16px, 2.5vw, 25px);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    padding: 0 10px;
+    padding-left: 21px;
+    font-weight: 500;
+  }
+
+  .model-add-button:hover {
+    background: white;
+    color: #1C1A1F;
+  }
+
+  .button-plus-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    filter: brightness(0) invert(1);
+  }
+  
+  .model-add-button:hover .button-plus-icon {
+    filter: brightness(0) invert(0);
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .new-model-form {
+      max-width: 280px;
+      min-height: 400px;
+    }
+    
+    .model-title {
+      margin: 15px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .new-model-form {
+      max-width: 100%;
+      padding: 15px;
+    }
+    
+    .model-preview-container {
+      max-width: 240px;
+    }
+    
+    .model-add-button {
+      height: 50px;
+    }
+  }

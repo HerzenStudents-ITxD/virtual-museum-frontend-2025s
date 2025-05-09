@@ -221,6 +221,11 @@
     margin-top: 44px;
 }
 
+.exhibits-no-results {
+    font-size: 16px;
+}
+
+
 /* Адаптивность */
 @media (max-width: 1440px) {
     .exhibits-grid {

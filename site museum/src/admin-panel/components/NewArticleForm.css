@@ -1,0 +1,128 @@
+.new-article-form {
+    background: #343436;
+    width: 100%;
+    max-width: 1360px;
+    height: auto;
+    min-height: 146px;
+    border-radius: 16.58px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 20px 26px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .form-plus-container {
+    width: 100%;
+    max-width: 195px;
+    height: clamp(80px, 10vw, 100px);
+    background: #1C1A1F;
+    border: 1px solid white;
+    border-radius: 15.27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
+  }
+  
+  .plus-icon {
+    width: clamp(30px, 10vw, 41px);
+    height: auto;
+    opacity: 0.7;
+  }
+  
+  .form-title {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 3vw, 35px);
+    color: white;
+    flex-grow: 1;
+    min-width: 200px;
+  }
+  
+  .form-add-button {
+    width: 100%;
+    max-width: 330px;
+    height: clamp(50px, 10vw, 60px);
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 25px;
+    color: white;
+    font-family: "Futura PT", sans-serif;
+    font-size: clamp(16px, 2.5vw, 25px);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 127px;
+    padding-left: 21px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+  
+  .form-add-button:hover {
+    background: white;
+    color: #1C1A1F;
+  }
+  
+  .button-plus-icon {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    filter: brightness(0) invert(1);
+  }
+  
+  .form-add-button:hover .button-plus-icon {
+    filter: brightness(0) invert(0);
+  }
+
+  /* Адаптивность */
+  @media (max-width: 1024px) {
+    .new-article-form {
+      padding: 20px;
+    }
+    
+    .form-plus-container {
+      max-width: 150px;
+      height: 80px;
+    }
+    
+    .form-title {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .new-article-form {
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: auto;
+      padding: 20px;
+    }
+    
+    .form-plus-container {
+      max-width: 100%;
+      width: 150px;
+      margin-bottom: 15px;
+    }
+    
+    .form-add-button {
+      margin-top: 15px;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-title {
+      font-size: 20px;
+      min-width: 100%;
+    }
+    
+    .form-add-button {
+      height: 50px;
+      font-size: 16px;
+    }
+  }

@@ -1,0 +1,118 @@
+.admin-login-page {
+    min-height: 100vh;
+    background-color: var(--background-color);
+  }
+  
+  /* Зеленая плашка */
+  .login-container {
+    width: 710px;
+    height: 402px;
+    background-color: var(--block-color); /* 363732 */
+    border-radius: 20px;
+    margin: 30px auto 0;
+    padding: 33px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Заголовок */
+  .login-title {
+    font-family: "Futura PT", sans-serif;
+    font-size: 30px;
+    color: var(--white-color);
+    margin-bottom: 33px;    
+    font-weight: 400;
+  }
+  
+  /* Контейнер для полей ввода */
+  .input-field {
+    width: 540px;
+    height: 57px;
+    background-color: var(--background-color); 
+    border-radius: 11px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    padding: 0 21px;
+  }
+  
+  /* Стили полей ввода */
+  .login-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: "Futura PT", sans-serif;
+    font-size: 21px;
+    color: var(--white-color);
+    font-weight: 100;
+  }
+  
+  .login-input::placeholder {
+    color: var(--white-color);
+    opacity: 1;
+    font-weight: 100;
+  }
+
+  .eye-icon {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    margin-left: auto;
+    padding-left: 21px;
+  }
+  
+  /*для вводимого текста */
+  .login-input {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 450; 
+  }
+  
+  /* Кнопка входа */
+  .login-button {
+    width: 184px;
+    height: 46px;
+    background-color: var(--white-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 50px;
+    font-family: "Futura PT", sans-serif;
+    font-size: 24.5px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+  }
+  
+  .login-button:hover {
+    background-color: var(--background-color);
+    color: var(--white-color);
+  }
+  
+  /* Адаптация */
+  @media (max-width: 768px) {
+    .login-container {
+      width: 90%;
+      height: auto;
+      padding: 25px;
+      margin-top: 60px;
+    }
+  
+    .input-field {
+      width: 100%;
+      max-width: 538px;
+    }
+  
+    .login-title {
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .eye-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }

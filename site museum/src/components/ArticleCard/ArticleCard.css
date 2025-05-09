@@ -35,6 +35,12 @@
     word-break: break-word; 
     white-space: pre-wrap; 
   }
+
+  .article-card__title h3{
+    font-family: "Futura PT";
+    font-size: 22px;
+    font-weight: 450;
+  }
   
   /* Кнопка (255x44) */
   .article-card__button {
