@@ -1,5 +1,6 @@
 import "./NewArticleForm.css";
 import PlusIcon from "../../assets/icons/plus.svg"; 
+import { Link } from 'react-router-dom';
 
 const NewArticleForm = () => {
   return (
@@ -13,14 +14,18 @@ const NewArticleForm = () => {
         />
       </div>
       <div className="form-title">НОВАЯ СТАТЬЯ</div>
-      <button className="form-add-button">
+
+      <Link
+        to="/articlecreate"
+        className="form-add-button"
+      >
         ДОБАВИТЬ
         <img 
           src={PlusIcon} 
           alt="Plus" 
           className="button-plus-icon"
         />
-      </button>
+      </Link>
     </div>
   );
 };

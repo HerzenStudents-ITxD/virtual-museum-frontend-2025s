@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from "../../assets/img/svg/logo.svg";
 
 export default function Footer() {
@@ -30,10 +31,10 @@ export default function Footer() {
             <li className="footer__item">
               <ul className="footer__nav-list">
                 <li className="footer__nav-item">
-                  <a href="" className="footer__nav-link" style={{textWrap: "nowrap"}}>3D-экспонаты</a>
+                  <Link to="/exhibits" className="footer__nav-link" style={{textWrap: "nowrap"}}>3D-экспонаты</Link>
                 </li>
                 <li className="footer__nav-item">
-                  <a href="" className="footer__nav-link">Художественная культура</a>
+                  <Link to="/culture" className="footer__nav-link">Художественная культура</Link>
                 </li>
                 <li className="footer__nav-item">
                   <a href="" className="footer__nav-link">Религиозная культура</a>
@@ -69,16 +70,6 @@ export default function Footer() {
               <p className="footer__item-description">
                 © 2023 Виртуальный музей традиционной культуры малочисленных  народов Севера, Сибири и Дальнего Востока Российской Федерации
               </p>
-              <a href="" className="logo-wrapper footer__logo-wrapper footer__logo-wrapper-mobile">
-                <img
-                  src={logo}
-                  alt="logo"
-                  className="section-hero__header-logo"
-                />
-                <p className="section-hero__header-logo-description">
-                  МУЗЕЙ <br />ТРАДИЦИОННОЙ <br />КУЛЬТУРЫ
-                </p>
-              </a>
             </li>
           </ul>
         </div>

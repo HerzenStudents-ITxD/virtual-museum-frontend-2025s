@@ -17,6 +17,15 @@
     animation: appearance 0.3s forwards ease;
   }
 
+  .dropdown-item-link{
+    font-family: var(--font-family-bold);
+    display: block;
+  }
+
+  .dropdown-item-link:hover {
+  color: var(--background-color);
+  }
+
 /* Общие стили для десктопного хедера */
 .desktop-header {
     display: flex;

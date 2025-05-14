@@ -10,7 +10,8 @@ import ArtArticlePage from "./pages/ArtArticlePage";
 import Login from "./admin-panel/pages/Login";
 import ContentManagerPage from "./admin-panel/pages/ContentManagerPage";
 import NewModelPage from "./admin-panel/pages/NewModelPage";
-import NewArticlePage from "./admin-panel/pages/NewArticlePage"
+import NewArticlePage from "./admin-panel/pages/NewArticlePage";
+import NoFoundPage from "./pages/NoFoundPage"
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="content" element={<ContentManagerPage />} />
         <Route path="modelcreate" element={<NewModelPage />} />
         <Route path="articlecreate" element={<NewArticlePage />} />
+        <Route path="404" element={<NoFoundPage />} />
 
       </Routes>
     </BrowserRouter>

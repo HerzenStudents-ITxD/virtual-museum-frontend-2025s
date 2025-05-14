@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -187,22 +188,21 @@ export default function Home() {
       <section className="section section-about">
 	<div className="container section-about-container">
 	  <div className="section-heading-wrapper">
-	    <p className="heading-number">(01)</p>
-	    <h4 className="section-heading">О музее</h4>
-	    <div className="special-button-wrapper special-button-wrapper-desktop">
-	      <button className="special-header-button about__special-header-button">
-		подробнее
-	      </button>
-	      <div className="special-button-circle background-img"></div>
-	    </div>
-	  </div>
+  		<p className="heading-number">(01)</p>
+  		<h4 className="section-heading">О музее</h4>
+  		<div className="special-button-wrapper special-button-wrapper-desktop">
+    		<Link 
+      			to="/about" 
+      			className="special-header-button about__special-header-button"
+    		>
+      			подробнее
+    		</Link>
+    		<div className="special-button-circle background-img"></div>
+  		</div>
+	</div>
 	  <div className="section-about-description-wrapper">
 	    <p className="section-about-description"><span className="description-marker">Музей традиционной культуры</span> включает сбор материалов студентами и преподавателями <span className="description-marker">Института народов Севера РГПУ им. А. И. Герцена</span> с участием специалистов местных музеев.</p>
 	    <div className="special-button-wrapper special-button-wrapper-mobile">
-	      <button className="special-header-button about__special-header-button">
-		подробнее
-	      </button>
-	      <div className="special-button-circle background-img"></div>
 	    </div>
 	  </div>
 	</div>

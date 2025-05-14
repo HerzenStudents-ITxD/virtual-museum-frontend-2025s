@@ -27,7 +27,9 @@ export default function Header({ isHeroHeader = false }) {
       </Link>
       <ul className="section-hero__header-list">
         <li className="section-hero__header-item">
-          <p className="section-hero__header-item-description">3D-экспонаты</p>
+          <Link to="/exhibits" className="section-hero__header-item-description">
+            3D-экспонаты
+          </Link>
         </li>
         <li
           id="dropdown-button"
@@ -77,9 +79,11 @@ export default function Header({ isHeroHeader = false }) {
               dropdownMenuOpen ? "dropdown-menu-active" : ""
             }`}
           >
-            <li className="dropdown-item">Художественная</li>
-            <li className="dropdown-item">Религиозная</li>
-            <li className="dropdown-item">
+            <li className="dropdown-item-m">
+              <Link to="/culture" className="dropdown-item-link">Художественная</Link>
+            </li>
+            <li className="dropdown-item-m">Религиозная</li>
+            <li className="dropdown-item-m">
               Традиционная <br />
               Жизнеобеспечения
             </li>
@@ -103,7 +107,7 @@ export default function Header({ isHeroHeader = false }) {
         </li>
       </ul>
       <div className="special-button-wrapper">
-        <button className="special-header-button">О МУЗЕЕ</button>
+        <Link to="/about" className="special-header-button">О МУЗЕЕ</Link>
         <div className="special-button-circle background-img"></div>
       </div>
     </>
@@ -140,10 +144,10 @@ export default function Header({ isHeroHeader = false }) {
       >
         <ul className="burger-menu-list">
           <li className="burger-menu-item">
-            <Link to="" className="burger-menu-item-link">3D-экспонаты</Link>
+            <Link to="/exhibits" className="burger-menu-item-link">3D-экспонаты</Link>
           </li>
           <li className="burger-menu-item">
-            <Link to="" className="burger-menu-item-link">Художественная культура</Link>
+            <Link to="/culture" className="burger-menu-item-link">Художественная культура</Link>
           </li>
           <li className="burger-menu-item">
             <Link to="" className="burger-menu-item-link">Религиозная культура</Link>

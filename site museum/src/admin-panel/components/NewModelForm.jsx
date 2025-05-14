@@ -1,5 +1,6 @@
 import "./NewModelForm.css";
 import PlusIcon from "../../assets/icons/plus.svg";
+import { Link } from 'react-router-dom';
 
 const NewModelForm = () => {
   return (
@@ -13,14 +14,18 @@ const NewModelForm = () => {
         />
       </div>
       <div className="model-title">НОВАЯ 3D-МОДЕЛЬ</div>
-      <button className="model-add-button">
+
+      <Link 
+        to="/modelcreate" 
+        className="model-add-button" 
+      >
         ДОБАВИТЬ
         <img 
           src={PlusIcon} 
           alt="Plus" 
           className="button-plus-icon"
         />
-      </button>
+      </Link>
     </div>
   );
 };
