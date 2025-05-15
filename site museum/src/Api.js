@@ -1,61 +1,34 @@
 import exhibitImgUrl from "./assets/sample-exhibit.png";
 
+const URL = "http://localhost:8000";
+
 class Api {
   constructor(url) {
     this.url = url;
   }
 
-  requestExhibit(id) {
-    return id != 1 ? null : {
-      id: 1,
-
-      modelSrc: exhibitImgUrl,
-
-      description: {
-        title: "Макет девушки, одетой в ненецкую ягушку",
-
-        bits: [
-          {
-            name: "Описание",
-            content: "Ягушка (нен. ной паны) - традиционная ненецкая одежда. В данном случае летний вариант.",
-          },
-
-          {
-            name: "Материал",
-            content: "Сукно",
-          },
-        ],
-
-        filters: [
-          {
-            name: "Регион",
-            value: "Ямало-Ненецкий автономный округ",
-          },
-
-          {
-            name: "Район",
-            value: "Тазовский",
-          },
-
-          {
-            name: "Нас. пункт",
-            value: "Тазовский",
-          },
-
-          {
-            name: "Этнос",
-            value: "Ненцы",
-          },
-        ],
-      },
-    };
+  async getCultureArticles() {
+    return this.callMethod("/culture");
   }
 
-  requestExhibits() {
-    return [this.requestExhibit(1)];
+  async getCultureArticle(id) {
+    return this.callMethod(`/culture/${id}`);
+  }
+
+  async getExhibits() {
+    return this.callMethod("/exhibits");
+  }
+
+  async getExhibit(id) {
+    return this.callMethod(`/exhibits/${id}`);
+  }
+
+  async callMethod(name) {
+    const result = await fetch(`${this.url}/api${name}`);
+    return await result.json();
   }
 }
 
-const api = new Api('https://example.com');
+const api = new Api(URL);
 
 export default api;

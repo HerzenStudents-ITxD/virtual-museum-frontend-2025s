@@ -1,0 +1,263 @@
+.article-card-custom {
+    background: #343436;
+    width: 100%;
+    max-width: 1360px;
+    height: 181px;
+    border-radius: 16.58px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 23px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  /* Превью (заглушка) */
+  .article-preview-custom {
+    width: 195px;
+    height: 135px;
+    background: #4A4B47;
+    border-radius: 15.27px;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .preview-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Futura PT", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* .article-text-custom {
+    all: unset; 
+    display: flex !important;
+    align-items: flex-start !important;
+    width: auto;
+    height: 90px;
+    margin-left: 20px;
+    color: white !important;
+    font-family: "Futura PT", sans-serif !important;
+    font-size: 35px !important;
+    font-weight: 500 !important; 
+  }
+  .article-text-custom p {
+    all: unset; 
+    align-self: flex-start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  } */
+
+  /* Кнопки управления */
+  .article-actions-custom {
+    position: absolute;
+    right: 28px;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .article-actions-custom button {
+    width: 90px;
+    height: 90px;
+    border-radius: 25px;
+    border: 1px solid white;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .article-actions-custom button img {
+    width: auto;
+    height: auto;
+    max-width: 55px;
+    max-height: 50px;
+    transition: all 0.3s;
+  }
+
+  .visibility-button:hover {
+    background: white;
+  }
+
+  .visibility-button:hover img {
+    filter: brightness(0);
+  }
+  .visibility-button:not(.active) {
+    background: white !important;
+  }
+  .visibility-button:not(.active) img {
+    filter: brightness(0) invert(0) !important;
+  }
+
+  /* Кнопка удаления */
+  .delete-button:hover {
+    background: white;
+  }
+  
+  .delete-button:hover img {
+    filter: brightness(0);
+  }
+  
+  /* Кнопка редактирования */
+  .edit-button:hover {
+    background: white;
+  }
+  
+  .edit-button:hover img {
+    filter: brightness(0);
+  }
+
+  /* Модальное окно удаления */
+  .delete-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .delete-modal {
+    width: 600px;
+    height: 450px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 59px;
+    box-sizing: border-box;
+  }
+  
+  .modal-trash-icon {
+    width: 91px;
+    height: 102px;
+    margin-bottom: 27px;
+    filter: brightness(0);
+  }
+  
+  .delete-modal h3 {
+    font-family: "Futura PT", sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    color: #1C1A1F;
+    margin: 0 0 32px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .modal-buttons button {
+    width: 396px;
+    height: 56px;
+    border-radius: 55px;
+    font-family: "Futura PT", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .confirm-delete {
+    background: #DD473B;
+    color: white;
+    border: none;
+  }
+  
+  .confirm-delete:hover {
+    background: #1C1A1F;
+  }
+  
+  .cancel-delete {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .cancel-delete:hover {
+    background: white;
+    color: #1C1A1F;
+  }
+  
+  /* Адаптивность */
+@media (max-width: 1200px) {
+    .article-card-custom {
+      height: auto;
+      flex-direction: column;
+      padding: 23px;
+      align-items: flex-start;
+    }
+    
+    .article-preview-custom {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 20px;
+    }
+    
+    .article-text-custom {
+      width: 100% !important;
+      margin-left: 0 !important;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    
+    .article-actions-custom {
+      position: static !important;
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .article-actions-custom {
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .article-actions-custom button {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  @media (max-width: 768px) {
+  .article-card-custom {
+    height: auto !important;
+    padding: 20px !important;
+    flex-direction: column;
+  }
+  
+  .article-preview-custom {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+  
+  .article-text-custom {
+    margin-left: 0 !important;
+    height: auto !important;
+    margin-bottom: 15px;
+  }
+  
+  .article-actions-custom {
+    position: relative !important;
+    right: auto !important;
+    justify-content: center;
+    width: 100%;
+  }
+}

@@ -1,0 +1,82 @@
+.exhibit-preview {
+    width: 324px;
+    height: 446px;
+    background-color: #343436;
+    border-radius: 16.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 19px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.exhibit-preview img {
+    width: 290px;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 16.5px;
+    background-color: #2f5d38;
+}
+
+.exhibit-preview h4 {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: white;
+    margin: 9px 0 0 29px;
+    width: 258.6px;
+    align-self: flex-start;
+}
+
+.exhibit-preview button {
+    width: 289px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 89px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Futura PT", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    padding-left: 18px;
+    margin-top: 10px;
+}
+.exhibit-preview button::after {
+    content: "";
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5.4px;
+    height: 14.7px;
+    background-color: white; /* Исходный цвет */
+    mask-image: url("../assets/icons/arrow-right.svg");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url("../assets/icons/arrow-right.svg");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    background-image: none; 
+}
+
+/* Ховер-эффекты */
+.exhibit-preview button:hover {
+    background: white;
+    color: var(--block-color);
+}
+
+.exhibit-preview button:hover .button-arrow {
+    filter: invert(1);
+}
+
+.exhibit-preview button:hover::after {
+    background-color: var(--block-color); 
+}

@@ -1,0 +1,148 @@
+.exhibit-card-custom {
+    background: #343436;
+    width: 100%;
+    max-width: 325px;
+    height: auto;
+    min-height: 475px;
+    border-radius: 16.58px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 19px 18px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  /* Превью (заглушка) */
+  .exhibit-preview-custom {
+    width: 100%;
+    max-width: 289.28px;
+    height: auto;
+    aspect-ratio: 289.28/290.94;
+    background: #4A4B47;
+    border-radius: 15.27px;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .preview-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Futura PT", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Текстовый блок */
+  .exhibit-text-custom {
+    width: 259px;
+    height: 42px;
+    display: flex;
+    padding-bottom: 5px;
+  }
+  
+  .exhibit-text-custom p {
+    font-family: "Futura PT", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 259px;
+  }
+  
+  /* Кнопки управления */
+  .exhibit-actions-custom {
+    position: absolute;
+    bottom: 19px;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .exhibit-actions-custom button {
+    width: 70px;
+    height: 70px;
+    border-radius: 19px;
+    border: 1px solid white;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .exhibit-actions-custom button img {
+    width: auto;
+    height: auto;
+    max-width: 40px;
+    max-height: 35px;
+    transition: all 0.3s;
+  }
+
+  /* Стили для кнопки видимости */
+  .visibility-button:not(.active) {
+    background: white !important;
+  }
+  
+  .visibility-button:not(.active) img {
+    filter: brightness(0) invert(0) !important;
+  }
+  
+  .visibility-button.active {
+    background: transparent !important;
+    border: 1px solid white !important;
+  }
+  
+  .visibility-button.active img {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  /* Кнопка удаления */
+  .delete-button:hover {
+    background: white;
+  }
+  
+  .delete-button:hover img {
+    filter: brightness(0);
+  }
+  
+  /* Кнопка редактирования */
+  .edit-button:hover {
+    background: white;
+  }
+  
+  .edit-button:hover img {
+    filter: brightness(0);
+  }
+
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .exhibit-card-custom {
+      max-width: 280px;
+      min-height: 400px;
+    }
+    
+    .exhibit-preview-custom {
+      max-width: 240px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .exhibit-card-custom {
+      max-width: 100%;
+      padding: 15px;
+    }
+    
+    .exhibit-actions-custom {
+      gap: 15px;
+    }
+    
+    .exhibit-actions-custom button {
+      width: 60px;
+      height: 60px;
+    }
+  }
