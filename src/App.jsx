@@ -15,7 +15,7 @@ import NoFoundPage from "./pages/NoFoundPage"
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/virtual_museum">
       <Routes>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
