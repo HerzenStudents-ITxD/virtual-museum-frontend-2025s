@@ -29,17 +29,11 @@ const ContentManagerPage = () => {
     api.getExhibits().then(exhibits => setExhibits(exhibits.toReversed()));
   }, []);
 
-  // Заглушки данных
-  const mockModels = [
-    { id: 1, title: "Модель 1ааааааааааааа ааааааааааааааа"},
-    { id: 2, title: "Модель 2 спасибо господь"},
-    { id: 3, title: "Модель 3 что я такой"},
-    { id: 4, title: "Модель 4 шикарный"}
-  ];
-  const mockArticles = [
-    { id: 1, title: "Статья 1 текст"},
-    { id: 2, title: "Вануйто Анна Еполивна Песня от Ядне Леонида"}
-  ];
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    api.getArticles().then(articles => setArticles(articles.toReversed()));
+  }, []);
 
   // Функция для переключения статуса
   const toggleStatus = (status) => {
@@ -103,7 +97,7 @@ const ContentManagerPage = () => {
             <>
               <NewArticleForm onClick={handleAddClick} />
               <div className="articles-list">
-                {mockArticles.map(article => (
+                {articles.map(article => (
                   <ArticleCard key={article.id} data={article} />
                 ))}
               </div>

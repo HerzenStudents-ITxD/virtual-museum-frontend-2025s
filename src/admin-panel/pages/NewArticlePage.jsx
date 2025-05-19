@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from "react-router";
 import AdminHeader from "../components/AdminHeader";
 import FileUpload from '../components/creation/FileUpload';
 import './NewArticlePage.css';
 import doneIcon from '../../assets/icons/done.svg';
 import triangleArrow from '../../assets/icons/triangle-arrow.svg';
+import api from "../../Api";
 
 const NewArticlePage = () => {
   // Состояния формы
@@ -131,6 +133,23 @@ const NewArticlePage = () => {
       categories: additionalInfo.categories.filter(c => c !== category)
     });
   };
+
+  const navigate = useNavigate();
+
+  async function handleCreate() {
+    try {
+      await api.createArticle({
+        type: "Декоративно-прикладное искусство",
+        title,
+        desc: description,
+        ...filters,
+      });
+
+      navigate("/content");
+    } catch (error) {
+      console.log(`Error creating article:\n${error}`);
+    }
+  }
 
   return (
     <div className="new-article-page">
@@ -400,7 +419,7 @@ const NewArticlePage = () => {
         </button>
         <button 
           className="publish"
-          onClick={() => setModalOpen('publish')}
+          onClick={handleCreate}
         >
           ЗАГРУЗИТЬ НА САЙТ
         </button>

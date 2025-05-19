@@ -19,6 +19,10 @@ class Api {
     return this.callMethod("/exhibits");
   }
 
+  async getArticles() {
+    return this.callMethod("/culture");
+  }
+
   async getExhibit(id) {
     return this.callMethod(`/exhibits/${id}`);
   }
@@ -40,6 +44,19 @@ class Api {
 
   async createExhibit(parameters) {
     return this.callMethod("/exhibits", {
+      method: "POST",
+
+      headers: {
+        "Authorization": this.getAuthorizationHeader(),
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(parameters),
+    })
+  }
+
+  async createArticle(parameters) {
+    return this.callMethod("/culture", {
       method: "POST",
 
       headers: {
