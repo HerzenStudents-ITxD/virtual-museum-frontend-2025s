@@ -4,6 +4,8 @@ import FileUpload from '../components/creation/FileUpload';
 import './NewModelPage.css';
 import doneIcon from '../../assets/icons/done.svg';
 import triangleArrow from '../../assets/icons/triangle-arrow.svg';
+import api from "../../Api";
+import { useNavigate } from 'react-router-dom';
 
 const NewModelPage = () => {
   // Состояния формы
@@ -66,6 +68,22 @@ const NewModelPage = () => {
     setFilters(prev => ({ ...prev, [filterName]: value }));
     setActiveFilter(null);
   };
+
+  const navigate = useNavigate();
+
+  async function handleCreate() {
+    try {
+      await api.createExhibit({
+        title,
+        desc: description,
+        ...filters,
+      });
+
+      navigate("/content");
+    } catch (error) {
+      console.log(`Error creating exhibit:\n${error}`);
+    }
+  }
 
   return (
     <div className="new-model-page">
@@ -183,7 +201,7 @@ const NewModelPage = () => {
         </button>
         <button 
           className="publish"
-          onClick={() => setModalOpen('publish')}
+          onClick={handleCreate}
         >
           ЗАГРУЗИТЬ НА САЙТ
         </button>

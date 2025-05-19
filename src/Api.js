@@ -38,6 +38,19 @@ class Api {
     });
   }
 
+  async createExhibit(parameters) {
+    return this.callMethod("/exhibits", {
+      method: "POST",
+
+      headers: {
+        "Authorization": this.getAuthorizationHeader(),
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(parameters),
+    })
+  }
+
   async callMethod(name, options = {}) {
     const result = await fetch(`${this.url}/api${name}`, options);
     const body = await result.json();
@@ -47,6 +60,16 @@ class Api {
     }
 
     return body;
+  }
+
+  getAuthorizationHeader() {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (accessToken === null) {
+      throw Error("Not authenticated");
+    }
+
+    return `Bearer ${accessToken}`;
   }
 }
 
