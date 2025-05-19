@@ -26,13 +26,13 @@ const ContentManagerPage = () => {
   const [exhibits, setExhibits] = useState([]);
 
   useEffect(() => {
-    api.getExhibits().then(exhibits => setExhibits(exhibits.toReversed()));
+    api.getExhibits().then(exhibits => setExhibits(exhibits));
   }, []);
 
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    api.getArticles().then(articles => setArticles(articles.toReversed()));
+    api.getArticles().then(articles => setArticles(articles));
   }, []);
 
   // Функция для переключения статуса

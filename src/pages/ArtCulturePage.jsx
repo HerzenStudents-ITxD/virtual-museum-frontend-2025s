@@ -57,6 +57,7 @@ const ArtCulturePage = () => {
             {filteredArticles.map(article => (
               <ArticleCard
                 key={article.id}
+                id={article.id}
                 title={article.title}
                 image={article.main_photo}
               />

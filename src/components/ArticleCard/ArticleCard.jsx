@@ -1,8 +1,10 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./ArticleCard.css";
 import arrowRight from "../../assets/icons/arrow-right.svg";
 
-const ArticleCard = ({ title, image }) => {
+const ArticleCard = ({ id, title, image }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="article-card">
       <img 
@@ -14,7 +16,10 @@ const ArticleCard = ({ title, image }) => {
       />
       <div className="article-card__content">
         <h3 className="article-card__title">{title}</h3>
-        <button className="article-card__button">
+        <button
+          className="article-card__button"
+          onClick={() => navigate(`/culture/${id}`)}
+        >
           ПОДРОБНЕЕ
           <img 
             src={arrowRight} 
