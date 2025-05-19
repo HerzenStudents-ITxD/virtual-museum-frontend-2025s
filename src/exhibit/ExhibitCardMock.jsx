@@ -39,7 +39,7 @@ const ExhibitCardMock = ({ data }) => {
         
         <div className="exhibit-description">
           <h2>Описание</h2>
-          <p>{data.description}</p>
+          <p>{data.desc}</p>
         </div>
 
         <div className="exhibit-details">
