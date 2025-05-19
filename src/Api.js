@@ -23,9 +23,30 @@ class Api {
     return this.callMethod(`/exhibits/${id}`);
   }
 
-  async callMethod(name) {
-    const result = await fetch(`${this.url}/api${name}`);
-    return await result.json();
+  async authenticate(username, password) {
+    return this.callMethod("/auth/login", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+
+      body: new URLSearchParams({
+        username,
+        password
+      }),
+    });
+  }
+
+  async callMethod(name, options = {}) {
+    const result = await fetch(`${this.url}/api${name}`, options);
+    const body = await result.json();
+
+    if (result.status !== 200) {
+      throw new Error(JSON.stringify(body));
+    }
+
+    return body;
   }
 }
 
