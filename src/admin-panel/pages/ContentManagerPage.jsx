@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminHeader from "../components/AdminHeader";
 import ExhibitCard from "../components/ExhibitCard";
 import ArticleCard from "../components/ArticleCard";
 import NewModelForm from "../components/NewModelForm";
 import NewArticleForm from "../components/NewArticleForm";
 import "./ContentManagerPage.css";
+import api from "../../Api";
 
 const ContentManagerPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("3D-модели");
@@ -21,6 +22,12 @@ const ContentManagerPage = () => {
   // Статусы (второй фильтр)
   const [selectedStatus, setSelectedStatus] = useState(null);
   const statuses = ["ЧЕРНОВИКИ", "СКРЫТОЕ", "ВЫЛОЖЕННОЕ"];
+
+  const [exhibits, setExhibits] = useState([]);
+
+  useEffect(() => {
+    api.getExhibits().then(exhibits => setExhibits(exhibits.toReversed()));
+  }, []);
 
   // Заглушки данных
   const mockModels = [
@@ -87,7 +94,7 @@ const ContentManagerPage = () => {
             <>
             <div className="models-grid">
                 <NewModelForm onClick={handleAddClick} />
-                {mockModels.map(model => (
+                {exhibits.map(model => (
                     <ExhibitCard key={model.id} data={model} />
                 ))}
             </div>
