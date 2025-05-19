@@ -1,4 +1,6 @@
+import api from "../../Api";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import AdminHeader from "../components/AdminHeader";
 import "./Login.css";
 import EyeOpen from "../../assets/icons/eye-open.svg";
@@ -6,9 +8,23 @@ import EyeClose from "../../assets/icons/eye-close.svg";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState("")
   const [password, setPassword] = useState("");
 
-  const togglePasswordVisibility = () => {
+  const navigate = useNavigate();
+
+  async function handleAuthenticate() {
+    try {
+      const response = await api.authenticate(username, password);
+      localStorage.setItem("accessToken", response.access_token);
+      navigate("/content");
+    } catch (error) {
+      // TODO: дать фидбэк пользователю.
+      console.log(`Error authenticating:\n${error}`);
+    }
+  }
+
+  function togglePasswordVisibility() {
     setShowPassword(!showPassword);
   };
 
@@ -23,7 +39,9 @@ const Login = () => {
           <input 
             type="text" 
             placeholder="Логин" 
-            className="login-input" 
+            className="login-input"
+            value={username}
+            onChange={event => setUsername(event.target.value)}
           />
         </div>
         
@@ -34,7 +52,7 @@ const Login = () => {
             placeholder="Пароль" 
             className="login-input" 
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={event => setPassword(event.target.value)}
           />
           {password && (
             <img 
@@ -46,7 +64,12 @@ const Login = () => {
           )}
         </div>
         
-        <button className="login-button">Войти</button>
+        <button
+          className="login-button"
+          onClick={handleAuthenticate}
+        >
+          Войти
+        </button>
       </div>
     </div>
   );
